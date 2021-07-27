@@ -3,6 +3,9 @@
 //crea l'immagine di qgis-server
 docker build -f Dockerfile -t qgis-server ./
 
+//crea l'immagine di lizmap
+docker build -f Dockerfile -t lizmap ./
+
 docker network create qgis
 
 docker run -d --rm --name qgis-server --net=qgis --hostname=qgis-server -v C:\Users\Elitebook\Documents\GitHub\docker_simile\qgis-server\data:/data:ro -p 5555:5555 -e "QGIS_PROJECT_FILE=/data/Cartografia_base.qgz" qgis-server
